@@ -5,6 +5,7 @@ import { CreateUserUseCase } from './CreateUserUseCase';
 
 export class CreateUserController {
   async execute(request: Request, response: Response) {
+    console.log('oi');
     const { name, email, password } = request.body;
 
     const createUser = container.resolve(CreateUserUseCase);
