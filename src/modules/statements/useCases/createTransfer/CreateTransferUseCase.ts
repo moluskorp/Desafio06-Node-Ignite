@@ -13,12 +13,14 @@ class CreateTransferUseCase {
   ){}
 
   async execute({amount, description, destination_id, user_id}:ICreateTransferUseCaseDTO): Promise<Statement>{
-    this.statementsRepository.create({
+    const statement = await this.statementsRepository.create({
       user_id,
       amount,
       description,
       type: OperationType.TRANSFER
     })
+
+    return statement;
   }
 }
 
