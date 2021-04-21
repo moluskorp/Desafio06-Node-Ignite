@@ -12,6 +12,8 @@ class CreateTransferUseCase {
     @inject('StatementsRepository') private statementsRepository: IStatementsRepository
   ){}
 
+
+  //asdasdsadsa
   async execute({amount, description, destination_id, user_id}:ICreateTransferUseCaseDTO): Promise<Statement>{
     const statement = await this.statementsRepository.create({
       user_id,
@@ -19,7 +21,6 @@ class CreateTransferUseCase {
       description,
       type: OperationType.TRANSFER
     })
-
     return statement;
   }
 }
